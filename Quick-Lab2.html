@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="div1">
+
+
+    </div>
+
+    <div id="div2">
+
+
+    </div>
+
+
+    <script>
+        /*
+        let para = document.createElement("p");
+        let para2 = document.createElement("p");
+        let para3 = document.createElement("p");
+
+        let para4 =document.createElement("p");
+        let div2 = document.getElementById("div2");
+
+        let br = document.createElement("BR");
+        */
+        const url = "https://api.artic.edu/api/v1/artworks";
+        fetch(url)
+        .then((resultat)=>resultat.json())
+        .then(data=>{
+
+            /*
+            para.textContent = `${data.data[0].title}` 
+            para2.textContent = `${data.data[0].artist_title}` 
+            para3.textContent = `${data.data[0].department_title}`;
+            */
+
+            document.write("--------------Artist names---------------");
+
+            for(i = 0; i<data.data.length ; i++){
+                document.write("<br>" + `${data.data[i].artist_title}` + "<br>");
+                //para4.textContent += `${data.data[i].artist_title}` + " -- ";
+                /*div2.appendChild(para4);
+                div2.appendChild(br);*/
+                
+            }
+            console.log(data);
+            console.log(data.data[0]);
+            console.log(data.data[0].title);
+            console.log(data.data[0].artist_title);
+            console.log(data.data[0].department_title);
+
+        })
+
+        
+        /*
+        let div1 = document.getElementById("div1");
+        div1.appendChild(para);
+        div1.appendChild(br);
+        div1.appendChild(para2);
+        div1.appendChild(br);
+        div1.appendChild(para3);
+        */
+
+
+
+    </script>
+</body>
+</html>
